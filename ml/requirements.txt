@@ -1,0 +1,9 @@
+# Entorno con el que se entrenó y verificó el modelo (Python 3.13). En Windows, "pip install -r ml/requirements.txt"
+# instala PyTorch para CPU, que es suficiente (la red es pequeña y entrena en segundos).
+torch==2.15.0
+numpy==2.5.3
+pandas==3.0.5
+matplotlib==3.11.2
+onnx==1.23.2
+onnxscript==0.7.2
+onnxruntime==1.29.0

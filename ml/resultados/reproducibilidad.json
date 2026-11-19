@@ -1,0 +1,12 @@
+{
+  "python": "3.13.18",
+  "torch": "2.15.0+cu132",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "onnxruntime": "1.29.0",
+  "sistema": "Linux-6.18.44-fc-v595-x86_64-with-glibc2.39",
+  "sha256_datos_sinteticos": "bc95752bd7fe0e0e295fcf330df2980951f5de7b944472cb5b89913061e7e1d5",
+  "sha256_pesos_entrenados": "a70b4a242371bfbd2ebddc599cd6114a02cc5827e682513858034b455048ceff",
+  "sha256_predicciones_prueba": "2caad3fdb4ab7e45fc04c50cba0518b9b1d3ab561565561ae8f9914350c851f6",
+  "sha256_metricas": "2a3424828413b3ab8c3b3be405dae9ad0e3723d3b15a68a2bdd9a7fb5720d08b"
+}

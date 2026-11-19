@@ -1,0 +1,12 @@
+# 2026-11-18T14:41:05+00:00 · intento de compilar la solución completa y el proyecto de escritorio en Linux (sin acceso a nuget.org)
+== dotnet build FerroSuite.slnx
+    0 Warning(s)
+    1 Error(s)
+Microsoft.NET.Sdk.FrameworkReferenceResolution.targets(120,5): error NETSDK1100: To build a project targeting Windows on this operating system, set the EnableWindowsTargeting property to true. 
+== dotnet build src/FerroSuite.Presentacion.Escritorio -p:EnableWindowsTargeting=true
+    10 Error(s)
+src/FerroSuite.Aplicacion/FerroSuite.Aplicacion.csproj : error NU1101: Unable to find package Microsoft.WindowsDesktop.App.Ref. No packages exist with this id in source(s): <feed local de verificación>, /usr/lib/dotnet/library-packs 
+src/FerroSuite.Dominio/FerroSuite.Dominio.csproj : error NU1101: Unable to find package Microsoft.WindowsDesktop.App.Ref. No packages exist with this id in source(s): <feed local de verificación>, /usr/lib/dotnet/library-packs 
+src/FerroSuite.Infraestructura/FerroSuite.Infraestructura.csproj : error NU1101: Unable to find package Microsoft.Extensions.Identity.Core. No packages exist with this id in source(s): <feed local de verificación>, /usr/lib/dotnet/library-packs 
+src/FerroSuite.Infraestructura/FerroSuite.Infraestructura.csproj : error NU1101: Unable to find package Microsoft.ML.OnnxRuntime. No packages exist with this id in source(s): <feed local de verificación>, /usr/lib/dotnet/library-packs 
+src/FerroSuite.Infraestructura/FerroSuite.Infraestructura.csproj : error NU1101: Unable to find package Microsoft.WindowsDesktop.App.Ref. No packages exist with this id in source(s): <feed local de verificación>, /usr/lib/dotnet/library-packs 

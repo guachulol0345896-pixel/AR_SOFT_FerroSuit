@@ -1,0 +1,7 @@
+# 2026-11-18T18:46:25+00:00 · Linux 6.18.44-fc-v595 · dotnet 10.0.115
+PASA  | RP1 | Predictor que falla: la tabla de pronósticos responde con la regla de respaldo para todos y avisa que el modelo falló — Modelo no disponible: se usa la regla de stock mínimo El modelo falló al calcular. El inventario funciona con normalidad.
+PASA  | RP2 | Pantalla de IA con el predictor fallando: muestra "Regla de respaldo" y el motivo (el modelo falló) — Por qué no se usó la red neuronal: El modelo falló al calcular; se usó la regla de stock mínimo.
+PASA  | RP3 | Con el predictor fallando, el inventario sigue operando (registrar un ajuste) — Movimiento registrado. Nuevo stock: 101.
+PASA  | RP4 | Sin errores de JavaScript
+
+4/4 pasos correctos

@@ -1,0 +1,31 @@
+# 2026-11-18T18:43:25+00:00 · Linux 6.18.44-fc-v595 · dotnet 10.0.115
+== dotnet build src/FerroSuite.Dominio
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+== dotnet build src/FerroSuite.Aplicacion
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+== dotnet build src/FerroSuite.Infraestructura
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+== dotnet build src/FerroSuite.Presentacion.Comunicacion
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+== dotnet build tests/FerroSuite.Pruebas
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+== ventana (WinForms) Debug
+    0 Error(s)
+    0 Warning(s)
+== ventana (WinForms) Release
+    0 Error(s)
+    0 Warning(s)
+== archivos que el ejecutable copia junto a sí (evaluación de MSBuild del proyecto de escritorio)
+50 archivos; 43 de frontend; BaseDatos/demo/datos_demo.sql, BaseDatos/migraciones/V001__esquema_inicial.sql, BaseDatos/migraciones/V002__modelo_completo.sql, BaseDatos/migraciones/V003__seguridad_y_auditoria.sql, appsettings.json, modelos/demanda_mlp.onnx, modelos/demanda_mlp_normalizacion.json
+== huella del modelo ONNX frente a la registrada en sus parámetros
+sha256 08eb91cf8e254a8a76d087096909b287e1dbbd9fe9209e6ed05a56745dce5cce == 08eb91cf8e254a8a76d087096909b287e1dbbd9fe9209e6ed05a56745dce5cce

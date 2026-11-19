@@ -1,0 +1,6 @@
+# 2026-11-18T18:45:02+00:00 · Linux 6.18.44-fc-v595 · dotnet 10.0.115
+PASA  | IN1 | Modelo no disponible: aviso visible, el producto usa la regla de respaldo y se explica el motivo; la pantalla sigue funcionando — Por qué no se usó la red neuronal: Modelo no disponible: No se encontró demanda_mlp.onnx en la carpeta de modelos.
+PASA  | IN2 | Con el modelo no disponible, el inventario sigue respondiendo
+PASA  | IN3 | Sin errores de JavaScript
+
+3/3 pasos correctos

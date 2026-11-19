@@ -1,0 +1,41 @@
+{
+  "muestras_comparadas": 3418,
+  "max_diferencia_absoluta": 7.62939453125e-06,
+  "max_diferencia_relativa": 2.015903106666883e-07,
+  "media_diferencia_absoluta": 3.958529504188846e-08,
+  "tolerancia_absoluta": 0.0001,
+  "tolerancia_relativa": 0.0001,
+  "coherente": true,
+  "lote_de_1_igual": true,
+  "salidas_no_negativas": true,
+  "onnxruntime": "1.29.0",
+  "onnx": "1.23.2",
+  "torch": "2.15.0+cu132",
+  "opset": 18,
+  "entradas": [
+    {
+      "nombre": "caracteristicas",
+      "forma": [
+        "lote",
+        48
+      ]
+    },
+    {
+      "nombre": "escala",
+      "forma": [
+        "lote",
+        1
+      ]
+    }
+  ],
+  "salidas": [
+    {
+      "nombre": "consumo_diario",
+      "forma": [
+        "lote",
+        1
+      ]
+    }
+  ],
+  "sha256_onnx": "08eb91cf8e254a8a76d087096909b287e1dbbd9fe9209e6ed05a56745dce5cce"
+}

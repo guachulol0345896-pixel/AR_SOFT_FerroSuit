@@ -1,0 +1,293 @@
+{
+  "criterio": "MAE en validación (prueba no usada)",
+  "resultados": [
+    {
+      "ocultas": [
+        128,
+        64
+      ],
+      "dropout": 0.1,
+      "decaimiento": 0.01,
+      "tasa": 0.001,
+      "mejor_epoca": 8,
+      "MAE_validacion": 2.5510875303102623,
+      "RMSE_validacion": 6.626921998103271
+    },
+    {
+      "ocultas": [
+        128,
+        64
+      ],
+      "dropout": 0.1,
+      "decaimiento": 0.0001,
+      "tasa": 0.001,
+      "mejor_epoca": 8,
+      "MAE_validacion": 2.5545842109406705,
+      "RMSE_validacion": 6.62486661835112
+    },
+    {
+      "ocultas": [
+        64,
+        32
+      ],
+      "dropout": 0.1,
+      "decaimiento": 0.01,
+      "tasa": 0.001,
+      "mejor_epoca": 8,
+      "MAE_validacion": 2.555448343005801,
+      "RMSE_validacion": 6.669389612254894
+    },
+    {
+      "ocultas": [
+        64,
+        32
+      ],
+      "dropout": 0.1,
+      "decaimiento": 0.0001,
+      "tasa": 0.001,
+      "mejor_epoca": 15,
+      "MAE_validacion": 2.5555734734204156,
+      "RMSE_validacion": 6.687285885429892
+    },
+    {
+      "ocultas": [
+        32,
+        16
+      ],
+      "dropout": 0.1,
+      "decaimiento": 0.0001,
+      "tasa": 0.001,
+      "mejor_epoca": 32,
+      "MAE_validacion": 2.5556513471930975,
+      "RMSE_validacion": 6.670221657135524
+    },
+    {
+      "ocultas": [
+        64,
+        32
+      ],
+      "dropout": 0.1,
+      "decaimiento": 0.01,
+      "tasa": 0.0003,
+      "mejor_epoca": 44,
+      "MAE_validacion": 2.5586013623373094,
+      "RMSE_validacion": 6.6481223686030955
+    },
+    {
+      "ocultas": [
+        64,
+        32
+      ],
+      "dropout": 0.1,
+      "decaimiento": 0.0001,
+      "tasa": 0.0003,
+      "mejor_epoca": 42,
+      "MAE_validacion": 2.560936804960809,
+      "RMSE_validacion": 6.662249522451432
+    },
+    {
+      "ocultas": [
+        128,
+        64
+      ],
+      "dropout": 0.1,
+      "decaimiento": 0.0001,
+      "tasa": 0.0003,
+      "mejor_epoca": 32,
+      "MAE_validacion": 2.5664436446465855,
+      "RMSE_validacion": 6.6868654231348605
+    },
+    {
+      "ocultas": [
+        64,
+        32
+      ],
+      "dropout": 0.3,
+      "decaimiento": 0.01,
+      "tasa": 0.0003,
+      "mejor_epoca": 100,
+      "MAE_validacion": 2.567260846217427,
+      "RMSE_validacion": 6.690748039630806
+    },
+    {
+      "ocultas": [
+        128,
+        64
+      ],
+      "dropout": 0.1,
+      "decaimiento": 0.01,
+      "tasa": 0.0003,
+      "mejor_epoca": 32,
+      "MAE_validacion": 2.569998709113275,
+      "RMSE_validacion": 6.691768996346496
+    },
+    {
+      "ocultas": [
+        32,
+        16
+      ],
+      "dropout": 0.1,
+      "decaimiento": 0.01,
+      "tasa": 0.001,
+      "mejor_epoca": 18,
+      "MAE_validacion": 2.5709090568255655,
+      "RMSE_validacion": 6.709580888652974
+    },
+    {
+      "ocultas": [
+        64,
+        32
+      ],
+      "dropout": 0.3,
+      "decaimiento": 0.0001,
+      "tasa": 0.0003,
+      "mejor_epoca": 149,
+      "MAE_validacion": 2.5752828523012417,
+      "RMSE_validacion": 6.730088901092548
+    },
+    {
+      "ocultas": [
+        64,
+        32
+      ],
+      "dropout": 0.3,
+      "decaimiento": 0.01,
+      "tasa": 0.001,
+      "mejor_epoca": 61,
+      "MAE_validacion": 2.5754308699257455,
+      "RMSE_validacion": 6.7241286768389985
+    },
+    {
+      "ocultas": [
+        128,
+        64
+      ],
+      "dropout": 0.3,
+      "decaimiento": 0.01,
+      "tasa": 0.0003,
+      "mejor_epoca": 74,
+      "MAE_validacion": 2.5784123255029026,
+      "RMSE_validacion": 6.696026762341915
+    },
+    {
+      "ocultas": [
+        32,
+        16
+      ],
+      "dropout": 0.1,
+      "decaimiento": 0.01,
+      "tasa": 0.0003,
+      "mejor_epoca": 127,
+      "MAE_validacion": 2.578844153808045,
+      "RMSE_validacion": 6.791646099893676
+    },
+    {
+      "ocultas": [
+        32,
+        16
+      ],
+      "dropout": 0.3,
+      "decaimiento": 0.0001,
+      "tasa": 0.001,
+      "mejor_epoca": 32,
+      "MAE_validacion": 2.5788811274663987,
+      "RMSE_validacion": 6.768712758855182
+    },
+    {
+      "ocultas": [
+        32,
+        16
+      ],
+      "dropout": 0.3,
+      "decaimiento": 0.01,
+      "tasa": 0.001,
+      "mejor_epoca": 32,
+      "MAE_validacion": 2.5789002002485297,
+      "RMSE_validacion": 6.7558249962013015
+    },
+    {
+      "ocultas": [
+        32,
+        16
+      ],
+      "dropout": 0.1,
+      "decaimiento": 0.0001,
+      "tasa": 0.0003,
+      "mejor_epoca": 87,
+      "MAE_validacion": 2.5793996886323045,
+      "RMSE_validacion": 6.760140622923535
+    },
+    {
+      "ocultas": [
+        128,
+        64
+      ],
+      "dropout": 0.3,
+      "decaimiento": 0.0001,
+      "tasa": 0.0003,
+      "mejor_epoca": 44,
+      "MAE_validacion": 2.581792506620792,
+      "RMSE_validacion": 6.72013399926113
+    },
+    {
+      "ocultas": [
+        64,
+        32
+      ],
+      "dropout": 0.3,
+      "decaimiento": 0.0001,
+      "tasa": 0.001,
+      "mejor_epoca": 52,
+      "MAE_validacion": 2.5828857886992926,
+      "RMSE_validacion": 6.770355554391156
+    },
+    {
+      "ocultas": [
+        32,
+        16
+      ],
+      "dropout": 0.3,
+      "decaimiento": 0.0001,
+      "tasa": 0.0003,
+      "mejor_epoca": 91,
+      "MAE_validacion": 2.5856607344301468,
+      "RMSE_validacion": 6.785377209160349
+    },
+    {
+      "ocultas": [
+        32,
+        16
+      ],
+      "dropout": 0.3,
+      "decaimiento": 0.01,
+      "tasa": 0.0003,
+      "mejor_epoca": 91,
+      "MAE_validacion": 2.587277063984715,
+      "RMSE_validacion": 6.796398650079313
+    },
+    {
+      "ocultas": [
+        128,
+        64
+      ],
+      "dropout": 0.3,
+      "decaimiento": 0.01,
+      "tasa": 0.001,
+      "mejor_epoca": 39,
+      "MAE_validacion": 2.593939186446586,
+      "RMSE_validacion": 6.771976444641542
+    },
+    {
+      "ocultas": [
+        128,
+        64
+      ],
+      "dropout": 0.3,
+      "decaimiento": 0.0001,
+      "tasa": 0.001,
+      "mejor_epoca": 39,
+      "MAE_validacion": 2.595156578566605,
+      "RMSE_validacion": 6.802328459228105
+    }
+  ]
+}

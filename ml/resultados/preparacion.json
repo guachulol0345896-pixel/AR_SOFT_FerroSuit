@@ -1,0 +1,32 @@
+{
+  "origen_datos": "ml/datos/demanda_sintetica.csv",
+  "sha256_datos": "bc95752bd7fe0e0e295fcf330df2980951f5de7b944472cb5b89913061e7e1d5",
+  "dato_sintetico": true,
+  "ventana_dias": 28,
+  "horizonte_dias": 7,
+  "n_caracteristicas": 48,
+  "muestras": {
+    "total": 26172,
+    "entrenamiento": 18856,
+    "validacion": 3428,
+    "prueba": 3418
+  },
+  "limites": {
+    "entrenamiento_hasta": "2024-06-15",
+    "validacion_desde": "2024-06-22",
+    "validacion_hasta": "2024-09-19",
+    "prueba_desde": "2024-09-26",
+    "prueba_hasta": "2024-12-24"
+  },
+  "dias_faltantes_en_datos": {
+    "observado": 27325,
+    "agotado": 1072,
+    "sin_registro": 444,
+    "sin_historia": 399
+  },
+  "comprobaciones_sin_fuga": {
+    "ultimo_objetivo_entrenamiento_antes_de_validacion": true,
+    "ultimo_objetivo_validacion_antes_de_prueba": true,
+    "conjuntos_disjuntos": true
+  }
+}

@@ -1,0 +1,40 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/FerroSuite.Dominio/FerroSuite.Dominio.csproj" />
+    <Project Path="src/FerroSuite.Aplicacion/FerroSuite.Aplicacion.csproj" />
+    <Project Path="src/FerroSuite.Infraestructura/FerroSuite.Infraestructura.csproj" />
+    <Project Path="src/FerroSuite.Presentacion.Comunicacion/FerroSuite.Presentacion.Comunicacion.csproj" />
+    <Project Path="src/FerroSuite.Presentacion.Escritorio/FerroSuite.Presentacion.Escritorio.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/FerroSuite.Pruebas/FerroSuite.Pruebas.csproj" />
+  </Folder>
+  <Folder Name="/config/">
+    <File Path="config/appsettings.json" />
+  </Folder>
+  <Folder Name="/database/">
+    <File Path="database/README.md" />
+    <File Path="database/migraciones/V001__esquema_inicial.sql" />
+    <File Path="database/migraciones/V002__modelo_completo.sql" />
+    <File Path="database/migraciones/V003__seguridad_y_auditoria.sql" />
+    <File Path="database/demo/datos_demo.sql" />
+    <File Path="database/pruebas/legado_v1.sql" />
+  </Folder>
+  <Folder Name="/docs/">
+    <File Path="docs/README.md" />
+    <File Path="docs/arquitectura.md" />
+    <File Path="docs/compilacion.md" />
+    <File Path="docs/persistencia.md" />
+    <File Path="docs/seguridad.md" />
+    <File Path="docs/pronostico.md" />
+    <File Path="docs/pantalla_ia.md" />
+    <File Path="docs/informe_pruebas.md" />
+    <File Path="docs/auditoria_final.md" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="README.md" />
+    <File Path="AUTHORS.md" />
+    <File Path="THIRD-PARTY-NOTICES.md" />
+  </Folder>
+</Solution>

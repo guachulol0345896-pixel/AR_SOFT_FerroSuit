@@ -1,0 +1,20 @@
+# 2026-11-18T18:14:20+00:00 · Linux 6.18.44-fc-v595 · dotnet 10.0.115
+PASA  | IA1 | Bodega: el menú muestra "Inteligencia artificial"
+PASA  | IA2 | La lista de productos es la del backend, en el mismo orden (por riesgo); sin producto elegido se pide elegir uno — SIN-002, SIN-007, SIN-001, SIN-008
+PASA  | IA3 | Producto con historial (SIN-001): la red neuronal es la fuente y la pantalla muestra exactamente los valores calculados en C# — consumo 6.37/día · 15.7 días · entrega 3 · riesgo Muy bajo
+PASA  | IA4 | Gráfica: una barra por cada día con dato del backend (90 días), ventana del modelo marcada, línea del pronóstico y de la regla; tabla de 7 días — 90 barras / 90 días con dato
+PASA  | IA5 | Producto con días agotado (SIN-002): los días sin stock se dibujan como "agotado", no como venta cero — 6 días agotado
+PASA  | IA6 | Producto sin historial (SIN-007): regla de respaldo indicada con su motivo, "se agota en" no aplica y la gráfica lo explica — Por qué no se usó la red neuronal: Historial insuficiente: el producto no tiene movimientos.
+PASA  | IA7 | Búsqueda por nombre o SKU; si nada coincide, se informa
+PASA  | IA8 | Historial corto y sin proveedor (SIN-008): respaldo con motivo y sin botón de orden (explica por qué) — Sin acción Consumo con la regla actual: 0.25 galón/día (vendido en 30 días / 30). Con 6 en stock alcanza para unos 24 días. El proveedor tarda 3 día(s) (valor por defecto: sin proveedor asignado). El producto no tiene proveedor asignado: asígnalo en Inventario para poder pedir.
+PASA  | IA9 | Mientras el backend calcula se muestra "Consultando el modelo neuronal…" y se oculta el resultado anterior
+PASA  | IA10 | Si se cambia de producto antes de que llegue la respuesta, solo se muestra el producto elegido (se descarta la respuesta vieja)
+PASA  | IA11 | Si el backend responde con error, se muestra el mensaje (sin datos inventados) y "Reintentar" vuelve a pedir el cálculo
+PASA  | IA12 | Generar borrador abre una confirmación con producto, proveedor y la cantidad sugerida por el backend (editable) — sugerida 100
+PASA  | IA13 | El borrador se crea como orden "Pendiente de aprobación" con la cantidad confirmada; no se aprueba ni se envía, y el panel se cierra (no se puede enviar dos veces) — OC-001 · Pendiente de aprobación
+PASA  | IA14 | Tras crear el borrador se recalcula: la cantidad aparece como ya pedida y la sugerencia se descuenta
+PASA  | IA15 | Administrador: abre la pantalla con ?sku= y ve el mismo pronóstico
+PASA  | IA16 | Vendedor: no ve el menú, la pantalla dice "Sin acceso" y el backend rechaza la consulta aunque se envíe directo — Tu rol (Vendedor de mostrador) no permite esta operación.
+PASA  | IA17 | Sin errores de JavaScript en todo el recorrido
+
+17/17 pasos correctos

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Capa de APLICACIÓN: casos de uso, validaciones y puertos (interfaces) que implementa Infraestructura. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>FerroSuite.Aplicacion</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FerroSuite.Dominio\FerroSuite.Dominio.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="FerroSuite.Dominio.Comun" />
+    <Using Include="FerroSuite.Dominio.Inventario" />
+    <Using Include="FerroSuite.Dominio.Proveedores" />
+    <Using Include="FerroSuite.Dominio.Compras" />
+    <Using Include="FerroSuite.Dominio.Usuarios" />
+    <Using Include="FerroSuite.Dominio.Seguridad" />
+    <Using Include="FerroSuite.Aplicacion.Seguridad" />
+    <Using Include="FerroSuite.Aplicacion.Puertos" />
+    <Using Include="FerroSuite.Aplicacion.IA" />
+  </ItemGroup>
+</Project>

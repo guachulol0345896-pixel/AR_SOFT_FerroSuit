@@ -1,0 +1,25 @@
+{
+  "archivo": "demanda_sintetica.csv",
+  "dato_sintetico": true,
+  "semilla": 20261117,
+  "sha256": "bc95752bd7fe0e0e295fcf330df2980951f5de7b944472cb5b89913061e7e1d5",
+  "productos": 40,
+  "dias": 731,
+  "desde": "2023-01-01",
+  "hasta": "2024-12-31",
+  "filas": 29240,
+  "faltantes": {
+    "observado": 27325,
+    "agotado": 1072,
+    "sin_registro": 444,
+    "sin_historia": 399
+  },
+  "productos_por_categoria": {
+    "Construcción": 12,
+    "Eléctricos": 8,
+    "Herramientas": 4,
+    "Pinturas": 4,
+    "Plomería": 4,
+    "Tornillería": 8
+  }
+}

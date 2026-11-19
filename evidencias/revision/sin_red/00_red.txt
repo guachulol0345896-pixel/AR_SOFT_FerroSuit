@@ -1,0 +1,1 @@
+RED: sin acceso a internet -> [Errno 101] Network is unreachable

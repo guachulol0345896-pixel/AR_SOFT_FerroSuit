@@ -1,0 +1,32 @@
+# 2026-11-18T18:14:43+00:00 · Linux 6.18.44-fc-v595 · dotnet 10.0.115
+PASA  | R1 | Inicio de sesión del administrador: entra a Inicio y el backend tiene la sesión con su rol
+PASA  | R2 | Cierre de sesión: vuelve a ingreso, el backend ya no tiene sesión, abrir una pantalla pide ingresar y las acciones se rechazan — Tu sesión no está iniciada o venció. Ingresa con tu usuario y clave.
+PASA  | R3 | Registrar proveedor desde la pantalla (NIT con puntos se normaliza) y aparece en la tabla — Proveedor guardado en la base de datos.
+PASA  | R4 | Desactivar y volver a activar un proveedor desde la pantalla
+PASA  | R5 | Editar proveedor desde la pantalla: cambia nombre y días de entrega; el NIT no se edita — Proveedor Sintético Revisión (editado) · 7 días
+PASA  | R6 | Registrar producto desde la pantalla: SKU en mayúsculas, stock inicial y proveedor nuevo
+PASA  | R7 | Doble clic y clic extra en "Guardar producto": un solo producto (el botón se desactiva mientras responde) — 1 envío(s); segundo envío, si lo hubo, rechazado por SKU repetido
+PASA  | R8 | Editar producto desde la pantalla: cambia nombre y mínimo; el stock no se cambia editando — campo de stock bloqueado al editar
+PASA  | R9 | Entrada (compra, 8) y salida (venta, 5) desde la pantalla: 12 → 20 → 15 y quedan en el historial con responsable — stock 20 → 15; 3 movimientos
+PASA  | R10 | Salida mayor al stock: la pantalla muestra el error y el stock no cambia — No hay stock suficiente en Bodega principal (disponible: 15).
+PASA  | R11 | Consulta del historial de movimientos (reporte): la tabla muestra los movimientos del producto
+PASA  | R12 | Generar orden desde la pantalla (con doble clic): una sola orden, pendiente de aprobación — OC-001 Pendiente de aprobación
+PASA  | R13 | Aprobar orden (con doble clic): queda aprobada una sola vez, con fecha de entrega esperada — 2 solicitud(es) de aprobación enviadas; mensaje: Orden aprobada. El pago vence en 15 días.
+PASA  | R14 | Recibir la orden aprobada: suma 10 al stock (15 → 25) — stock 25
+PASA  | R15 | Marcar pagada la orden recibida
+PASA  | R16 | Rechazar una orden pendiente
+PASA  | R17 | Resumen de Inicio: las cifras de la pantalla son las del backend (productos, en riesgo, proveedores, órdenes pendientes) — 5|1|3|0
+PASA  | R18 | Consulta de auditoría (administrador): muestra la aprobación y la creación de productos de esta revisión, sin claves
+PASA  | R19 | Resumen de órdenes visible — Órdenes 2 registradas Pendientes 0 esperan aprobación del dueño Por pagar $ 0 a proveedores (plazo de 15 días)
+PASA  | R20 | Crear usuario con rol de bodega desde la pantalla
+PASA  | R21 | Desactivar y activar un usuario desde la pantalla
+PASA  | R22 | Restablecer la clave de un usuario: se muestra una clave temporal una sola vez
+PASA  | R23 | Base de datos caída (DbException en el repositorio): mensaje claro con referencia, sin detalles internos; al volver la base, todo responde — Revisa que SQL Server LocalDB esté disponible y vuelve a intentar. Referencia: 10CE5A24
+PASA  | R24 | Backend sin respuesta al abrir una pantalla: tras el tiempo de espera avisa que no hay comunicación (no muestra "Sin acceso" ni se queda en blanco) — Inventario muestra: «No hay comunicación con el backendNo se pudo consultar la sesión. Revisa el programa y vue»; Inicio avisa
+PASA  | R25 | Recuperación tras la desconexión: se vuelve a ingresar y a operar
+PASA  | R26 | Borrador de orden desde Inteligencia artificial: un segundo clic en "Crear borrador" después de crearlo no duplica la orden — 1 orden(es) creadas
+PASA  | R27 | Ninguna pantalla pide recursos fuera del equipo (fuentes, scripts o imágenes de internet)
+PASA  | R28 | Ningún recurso de las pantallas responde 404 u otro error (rutas de scripts, estilos y páginas)
+PASA  | R29 | Sin errores de JavaScript en toda la revisión
+
+29/29 pasos correctos

@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Capa de PRESENTACIÓN (programa de escritorio): ventana Windows Forms + WebView2 que muestra
+       las pantallas de la carpeta frontend. Es también la raíz de composición: arma las capas. -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>FerroSuite.Presentacion.Escritorio</RootNamespace>
+    <AssemblyName>FerroSuite</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FerroSuite.Presentacion.Comunicacion\FerroSuite.Presentacion.Comunicacion.csproj" />
+    <ProjectReference Include="..\FerroSuite.Infraestructura\FerroSuite.Infraestructura.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Navegador integrado (Microsoft Edge WebView2). -->
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3967.48" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="FerroSuite.Dominio.Comun" />
+    <Using Include="FerroSuite.Aplicacion.Puertos" />
+    <Using Include="FerroSuite.Aplicacion.IA" />
+    <Using Include="FerroSuite.Aplicacion.IA.Pronostico" />
+    <Using Include="FerroSuite.Aplicacion.Inventario" />
+    <Using Include="FerroSuite.Aplicacion.Proveedores" />
+    <Using Include="FerroSuite.Aplicacion.Compras" />
+    <Using Include="FerroSuite.Aplicacion.Usuarios" />
+    <Using Include="FerroSuite.Aplicacion.Seguridad" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Pantallas: se copian a <salida>\frontend\ (VentanaPrincipal las sirve desde ahí). -->
+    <None Remove="frontend\**" />
+    <Content Include="frontend\**\*" CopyToOutputDirectory="PreserveNewest" />
+    <!-- Scripts SQL: migraciones versionadas y datos de demostración, copiados a <salida>\BaseDatos\ (BaseDatosSql.Preparar). -->
+    <None Include="..\..\database\migraciones\V*.sql" Link="BaseDatos\migraciones\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\database\demo\*.sql" Link="BaseDatos\demo\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <!-- Configuración sin credenciales: se copia a <salida>\appsettings.json. -->
+    <None Include="..\..\config\appsettings.json" Link="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+    <!-- Modelos de IA exportados a ONNX (cuando existan): se copian a <salida>\modelos\. -->
+    <None Include="..\..\modelos\*.onnx" Link="modelos\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\modelos\*_normalizacion.json" Link="modelos\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

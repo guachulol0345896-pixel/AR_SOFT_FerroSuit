@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Capa de INFRAESTRUCTURA: SQL Server, configuración local y servicios externos. Implementa los puertos de Aplicación. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>FerroSuite.Infraestructura</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FerroSuite.Aplicacion\FerroSuite.Aplicacion.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Conexión con SQL Server (licencia MIT). -->
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
+    <!-- Hash de claves: PasswordHasher de ASP.NET Core Identity (licencia MIT). Solo esta biblioteca, sin el resto de ASP.NET Core. -->
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="10.0.0" />
+    <!-- Ejecución local del modelo neuronal ONNX (licencia MIT). Trae el motor nativo de ONNX Runtime para Windows. -->
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.29.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="FerroSuite.Dominio.Comun" />
+    <Using Include="FerroSuite.Dominio.Inventario" />
+    <Using Include="FerroSuite.Dominio.Proveedores" />
+    <Using Include="FerroSuite.Dominio.Compras" />
+    <Using Include="FerroSuite.Dominio.Usuarios" />
+    <Using Include="FerroSuite.Dominio.Seguridad" />
+    <Using Include="FerroSuite.Aplicacion.Puertos" />
+    <Using Include="FerroSuite.Aplicacion.IA.Pronostico" />
+  </ItemGroup>
+</Project>

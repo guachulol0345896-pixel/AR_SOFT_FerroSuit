@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Pruebas automáticas sin paquetes externos: se ejecutan con "dotnet run" o con F5 en Visual Studio
+       (proyecto de inicio: FerroSuite.Pruebas). Devuelve código 0 si todo pasa. Datos SINTÉTICOS. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>FerroSuite.Pruebas</RootNamespace>
+    <IsTestProject>false</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\FerroSuite.Presentacion.Comunicacion\FerroSuite.Presentacion.Comunicacion.csproj" />
+    <ProjectReference Include="..\..\src\FerroSuite.Infraestructura\FerroSuite.Infraestructura.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="FerroSuite.Dominio.Comun" />
+    <Using Include="FerroSuite.Dominio.Inventario" />
+    <Using Include="FerroSuite.Dominio.Proveedores" />
+    <Using Include="FerroSuite.Dominio.Compras" />
+    <Using Include="FerroSuite.Aplicacion.Puertos" />
+    <Using Include="FerroSuite.Aplicacion.IA" />
+    <Using Include="FerroSuite.Aplicacion.IA.Pronostico" />
+    <Using Include="FerroSuite.Aplicacion.Inventario" />
+    <Using Include="FerroSuite.Aplicacion.Proveedores" />
+    <Using Include="FerroSuite.Aplicacion.Compras" />
+    <Using Include="FerroSuite.Aplicacion.Usuarios" />
+    <Using Include="FerroSuite.Aplicacion.Seguridad" />
+    <Using Include="FerroSuite.Dominio.Usuarios" />
+    <Using Include="FerroSuite.Dominio.Seguridad" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pronósticos — FerroSuite</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body data-pagina="pronosticos">
+
+  <div data-componente="encabezado"></div>
+
+  <main>
+    <section class="module-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / Pronósticos</p>
+        <span class="tag-progress">IA · red neuronal local (ONNX)</span>
+        <h1>Pronóstico de demanda y reposición</h1>
+        <p class="lead">
+          Una red neuronal entrenada con PyTorch estima cuánto se venderá de cada producto en los próximos 7 días a partir
+          de sus ventas de los últimos 28. Con el stock actual y el tiempo de entrega del proveedor, el programa sugiere qué
+          pedir. Las sugerencias no crean ni aprueban órdenes: puedes usarlas para preparar una, que queda pendiente de aprobación.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div id="estado-modelo" class="aviso-modelo"></div>
+        <div id="resumen-pronostico" class="tarjetas-resumen bloque-gap"></div>
+        <div class="toolbar bloque-gap">
+          <label class="check"><input type="checkbox" id="solo-accion" checked /> Solo productos que requieren acción</label>
+          <button type="button" id="btn-recalcular" class="btn-chico">Recalcular</button>
+        </div>
+        <div id="mensajes-pronostico" class="form-mensajes"></div>
+        <div id="tabla-pronostico"></div>
+        <p class="nota-demo bloque-gap">
+          "Red neuronal": consumo estimado por el modelo. "Regla de stock mínimo": respaldo cuando el producto no tiene
+          historial suficiente o el modelo no está disponible (el motivo aparece en cada fila). El modelo actual fue entrenado
+          con datos SINTÉTICOS: valida la integración, no reemplaza el criterio de quien compra.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div data-componente="pie"></div>
+
+  <script src="js/components/util.js"></script>
+  <script src="js/components/etiqueta.js"></script>
+  <script src="js/components/tarjetaResumen.js"></script>
+  <script src="js/components/aviso.js"></script>
+  <script src="js/components/tabla.js"></script>
+  <script src="js/components/formulario.js"></script>
+  <script src="js/components/encabezado.js"></script>
+  <script src="js/components/pie.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/comunicacion/api.js"></script>
+  <script src="js/services/pronosticosService.js"></script>
+  <script src="js/controllers/pronosticos.js"></script>
+</body>
+</html>

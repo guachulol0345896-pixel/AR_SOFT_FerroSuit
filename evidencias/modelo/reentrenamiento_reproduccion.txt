@@ -1,0 +1,246 @@
+
+===== generar_datos_sinteticos.py =====
+{
+  "archivo": "demanda_sintetica.csv",
+  "dato_sintetico": true,
+  "semilla": 20261117,
+  "sha256": "bc95752bd7fe0e0e295fcf330df2980951f5de7b944472cb5b89913061e7e1d5",
+  "productos": 40,
+  "dias": 731,
+  "desde": "2023-01-01",
+  "hasta": "2024-12-31",
+  "filas": 29240,
+  "faltantes": {
+    "observado": 27325,
+    "agotado": 1072,
+    "sin_registro": 444,
+    "sin_historia": 399
+  },
+  "productos_por_categoria": {
+    "Construcción": 12,
+    "Eléctricos": 8,
+    "Herramientas": 4,
+    "Pinturas": 4,
+    "Plomería": 4,
+    "Tornillería": 8
+  }
+}
+
+===== preparar_datos.py =====
+{
+  "origen_datos": "ml/datos/demanda_sintetica.csv",
+  "sha256_datos": "bc95752bd7fe0e0e295fcf330df2980951f5de7b944472cb5b89913061e7e1d5",
+  "dato_sintetico": true,
+  "ventana_dias": 28,
+  "horizonte_dias": 7,
+  "n_caracteristicas": 48,
+  "muestras": {
+    "total": 26172,
+    "entrenamiento": 18856,
+    "validacion": 3428,
+    "prueba": 3418
+  },
+  "limites": {
+    "entrenamiento_hasta": "2024-06-15",
+    "validacion_desde": "2024-06-22",
+    "validacion_hasta": "2024-09-19",
+    "prueba_desde": "2024-09-26",
+    "prueba_hasta": "2024-12-24"
+  },
+  "dias_faltantes_en_datos": {
+    "observado": 27325,
+    "agotado": 1072,
+    "sin_registro": 444,
+    "sin_historia": 399
+  },
+  "comprobaciones_sin_fuga": {
+    "ultimo_objetivo_entrenamiento_antes_de_validacion": true,
+    "ultimo_objetivo_validacion_antes_de_prueba": true,
+    "conjuntos_disjuntos": true
+  }
+}
+
+===== entrenar.py =====
+época   1  pérdida entrenamiento 0.35563  validación 0.35591
+época  10  pérdida entrenamiento 0.31830  validación 0.34234
+época  20  pérdida entrenamiento 0.30091  validación 0.34365
+época  30  pérdida entrenamiento 0.29035  validación 0.34539
+época  40  pérdida entrenamiento 0.27981  validación 0.34694
+Parada temprana en la época 40: 25 épocas sin mejorar la validación.
+{
+  "epocas_ejecutadas": 40,
+  "mejor_epoca": 15,
+  "mejor_perdida_validacion": 0.33868786692619324,
+  "perdida_entrenamiento_en_mejor_epoca": 0.29650846123695374,
+  "duracion_segundos": 16.2,
+  "parametros_entrenables": 5249,
+  "torch": "2.15.0+cu132",
+  "semilla": 1234,
+  "hiperparametros": {
+    "capas_ocultas": [
+      64,
+      32
+    ],
+    "dropout": 0.1,
+    "tasa_aprendizaje": 0.001,
+    "decaimiento_pesos": 0.0001,
+    "tamano_lote": 256,
+    "epocas_maximas": 300,
+    "paciencia": 25,
+    "perdida": "SmoothL1 (Huber)",
+    "optimizador": "AdamW"
+  }
+}
+
+===== evaluar.py =====
+{
+  "prueba": {
+    "red_mlp": {
+      "MAE": 2.427087994395919,
+      "RMSE": 6.300056622970803,
+      "WAPE": 0.18428671495457438,
+      "sesgo": -0.16538821118505048,
+      "n": 3418,
+      "MAE_escalado_por_producto": 0.26177066564559937
+    },
+    "base_ingenuo": {
+      "MAE": 6.7923144990455135,
+      "RMSE": 19.543437293062468,
+      "WAPE": 0.5157346288464373,
+      "sesgo": 0.048419290040758636,
+      "n": 3418,
+      "MAE_escalado_por_producto": 0.6793444752693176
+    },
+    "base_ma7": {
+      "MAE": 3.228977525976229,
+      "RMSE": 8.53610090052482,
+      "WAPE": 0.24517350104251687,
+      "sesgo": -0.009471669370246395,
+      "n": 3418,
+      "MAE_escalado_por_producto": 0.3259735107421875
+    },
+    "base_ma28": {
+      "MAE": 2.4984048894138415,
+      "RMSE": 6.383452554439826,
+      "WAPE": 0.18970174577915078,
+      "sesgo": 0.10366154242374521,
+      "n": 3418,
+      "MAE_escalado_por_producto": 0.26779046654701233
+    },
+    "base_regla30": {
+      "MAE": 2.67411266161361,
+      "RMSE": 6.796591500005231,
+      "WAPE": 0.20304308659804485,
+      "sesgo": -0.6495112389142992,
+      "n": 3418,
+      "MAE_escalado_por_producto": 0.27764448523521423
+    },
+    "referencia_media_verdadera": {
+      "MAE": 2.209976148668997,
+      "RMSE": 5.59534797630096,
+      "WAPE": 0.1678015982554177,
+      "sesgo": 0.3118612020466675,
+      "n": 3418
+    }
+  },
+  "comparacion": {
+    "mejor_metodo_base_por_MAE": "base_ma28",
+    "mejora_MAE_vs_mejor_base_pct": 2.85,
+    "mejora_RMSE_vs_mejor_base_pct": 1.31,
+    "mejora_MAE_vs_regla_actual_pct": 9.24,
+    "mejora_RMSE_vs_regla_actual_pct": 7.31
+  }
+}
+
+===== exportar_onnx.py =====
+W1118 13:59:26.146000 4036 dist-packages/torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::nms
+W1118 13:59:26.146000 4036 dist-packages/torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::roi_align
+W1118 13:59:26.146000 4036 dist-packages/torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::roi_pool
+W1118 13:59:26.147000 4036 dist-packages/torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::deform_conv2d
+[torch.onnx] Obtain model graph for `ModeloExportable([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `ModeloExportable([...]` with `torch.export.export(..., strict=False)`... ✅
+[torch.onnx] Run decompositions...
+[torch.onnx] Run decompositions... ✅
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... ✅
+[torch.onnx] Optimize the ONNX graph...
+[torch.onnx] Optimize the ONNX graph... ✅
+/usr/local/lib/python3.13/site-packages/torch/onnx/_internal/exporter/_onnx_program.py:486: UserWarning: # The axis name: lote will not be used, since it shares the same shape constraints with another axis: lote.
+  rename_mapping = _dynamic_shapes.create_rename_mapping(
+{
+  "muestras_comparadas": 3418,
+  "max_diferencia_absoluta": 7.62939453125e-06,
+  "max_diferencia_relativa": 2.015903106666883e-07,
+  "media_diferencia_absoluta": 3.958529504188846e-08,
+  "tolerancia_absoluta": 0.0001,
+  "tolerancia_relativa": 0.0001,
+  "coherente": true,
+  "lote_de_1_igual": true,
+  "salidas_no_negativas": true,
+  "onnxruntime": "1.29.0",
+  "onnx": "1.23.2",
+  "torch": "2.15.0+cu132",
+  "opset": 18,
+  "entradas": [
+    {
+      "nombre": "caracteristicas",
+      "forma": [
+        "lote",
+        48
+      ]
+    },
+    {
+      "nombre": "escala",
+      "forma": [
+        "lote",
+        1
+      ]
+    }
+  ],
+  "salidas": [
+    {
+      "nombre": "consumo_diario",
+      "forma": [
+        "lote",
+        1
+      ]
+    }
+  ],
+  "sha256_onnx": "aeaa7f8465056469f4100cbdfeb9bfa17f9883723444c1071a7323abfba17a82"
+}
+
+===== verificar_preparacion.py =====
+{
+  "1_sin_fuga_entradas_no_cambian_al_alterar_el_futuro": true,
+  "1b_objetivos_lejanos_al_corte_no_cambian": true,
+  "1c_control_entradas_posteriores_si_cambian": true,
+  "1_origenes_comparados": 2252,
+  "2_normalizacion_solo_entrenamiento": true,
+  "3_separacion_cronologica_con_margen": true,
+  "4_sin_vacios_ni_infinitos": true,
+  "4b_muestras_con_faltantes_en_la_ventana": 8167,
+  "5_dataset_sintetico_reproducible": true,
+  "6_lector_movimientos_ferrosuite": true,
+  "6b_lector_reconstruye_stock_hacia_atras": true,
+  "todas_correctas": true
+}
+
+===== exportar_casos_prueba.py =====
+36 casos de entradas, 4 series y el recorrido de SINT-001 en modelos/demanda_mlp_casos_prueba.json
+
+{
+  "python": "3.13.18",
+  "torch": "2.15.0+cu132",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "onnxruntime": "1.29.0",
+  "sistema": "Linux-6.18.44-fc-v595-x86_64-with-glibc2.39",
+  "sha256_datos_sinteticos": "bc95752bd7fe0e0e295fcf330df2980951f5de7b944472cb5b89913061e7e1d5",
+  "sha256_pesos_entrenados": "a70b4a242371bfbd2ebddc599cd6114a02cc5827e682513858034b455048ceff",
+  "sha256_predicciones_prueba": "2caad3fdb4ab7e45fc04c50cba0518b9b1d3ab561565561ae8f9914350c851f6",
+  "sha256_metricas": "2a3424828413b3ab8c3b3be405dae9ad0e3723d3b15a68a2bdd9a7fb5720d08b"
+}
+
+real	0m55.306s
+user	0m39.794s
+sys	0m2.498s

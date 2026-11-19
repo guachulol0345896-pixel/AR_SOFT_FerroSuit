@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inteligencia artificial — FerroSuite</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body data-pagina="ia">
+
+  <div data-componente="encabezado"></div>
+
+  <main>
+    <section class="module-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / Inteligencia artificial</p>
+        <span class="tag-progress">Red neuronal local · ONNX Runtime</span>
+        <h1>Inteligencia artificial: demanda por producto</h1>
+        <p class="lead">
+          Elige un producto para ver sus ventas de los últimos 90 días y lo que la red neuronal espera vender en los próximos 7.
+          Con el stock actual y el tiempo de entrega del proveedor, el programa calcula el riesgo de quedarse sin producto y
+          sugiere cuánto pedir. Todo se calcula en el programa; nada se aprueba ni se envía solo.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container ia-layout">
+        <aside class="ia-buscador" aria-label="Selección de producto">
+          <label for="buscar-producto" class="ia-etiqueta">Buscar producto</label>
+          <input type="search" id="buscar-producto" placeholder="Nombre o SKU" autocomplete="off" />
+          <p class="ia-ayuda">Ordenados por riesgo de desabastecimiento.</p>
+          <div id="lista-productos" class="ia-lista" role="listbox" aria-label="Productos"></div>
+          <p class="ia-ayuda"><a href="pronosticos.html">Ver todos en una tabla</a></p>
+        </aside>
+
+        <div class="ia-detalle">
+          <div id="estado-modelo" class="aviso-modelo"></div>
+          <div id="mensajes-ia" class="form-mensajes"></div>
+          <div id="ia-vacio" class="ia-vacio">Elige un producto de la lista para ver su pronóstico.</div>
+          <div id="ia-cargando" class="ia-cargando" hidden aria-live="polite"><span class="ia-spinner"></span><span id="ia-cargando-texto">Consultando el modelo neuronal…</span></div>
+          <div id="ia-error" class="ia-error" hidden>
+            <p id="ia-error-texto"></p>
+            <button type="button" id="btn-reintentar" class="btn-chico">Reintentar</button>
+          </div>
+
+          <article id="ia-resultado" hidden aria-live="polite">
+            <header class="ia-cabecera">
+              <div>
+                <h2 id="ia-nombre"></h2>
+                <p id="ia-subtitulo" class="ia-ayuda"></p>
+              </div>
+              <div id="ia-fuente" class="ia-fuente"></div>
+            </header>
+            <div id="ia-motivo" class="ia-motivo" hidden></div>
+
+            <div id="ia-kpis" class="ia-kpis"></div>
+
+            <div class="ia-bloque">
+              <h3>Demanda diaria: historial y pronóstico</h3>
+              <div id="ia-grafica"></div>
+            </div>
+
+            <div class="ia-dos-columnas">
+              <div class="ia-bloque">
+                <h3>Recomendación de reposición</h3>
+                <div id="ia-recomendacion"></div>
+                <div id="ia-borrador" class="ia-borrador" hidden>
+                  <h4>Borrador de orden de compra</h4>
+                  <p class="ia-ayuda">Se crea como <strong>pendiente de aprobación</strong>: el administrador decide si la aprueba. No se envía al proveedor.</p>
+                  <dl class="ia-datos">
+                    <dt>Producto</dt><dd id="borrador-producto"></dd>
+                    <dt>Proveedor</dt><dd id="borrador-proveedor"></dd>
+                  </dl>
+                  <label for="borrador-cantidad" class="ia-etiqueta">Cantidad</label>
+                  <input type="number" id="borrador-cantidad" min="0" step="any" />
+                  <div class="ia-acciones">
+                    <button type="button" id="btn-crear-borrador" class="btn-chico">Crear borrador</button>
+                    <button type="button" id="btn-cancelar-borrador" class="btn-chico btn-secundario">Cancelar</button>
+                  </div>
+                  <div id="mensajes-borrador" class="form-mensajes"></div>
+                </div>
+              </div>
+              <div class="ia-bloque">
+                <h3>Historial disponible</h3>
+                <dl id="ia-historial" class="ia-datos"></dl>
+                <h3 class="bloque-gap">Proyección de los próximos 7 días</h3>
+                <div id="ia-proyeccion"></div>
+              </div>
+            </div>
+            <p class="nota-demo" id="ia-nota"></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-componente="pie"></div>
+
+  <script src="js/components/util.js"></script>
+  <script src="js/components/etiqueta.js"></script>
+  <script src="js/components/tarjetaResumen.js"></script>
+  <script src="js/components/aviso.js"></script>
+  <script src="js/components/tabla.js"></script>
+  <script src="js/components/formulario.js"></script>
+  <script src="js/components/encabezado.js"></script>
+  <script src="js/components/pie.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/comunicacion/api.js"></script>
+  <script src="js/services/ordenesService.js"></script>
+  <script src="js/services/pronosticosService.js"></script>
+  <script src="js/components/graficaDemanda.js"></script>
+  <script src="js/controllers/ia.js"></script>
+</body>
+</html>

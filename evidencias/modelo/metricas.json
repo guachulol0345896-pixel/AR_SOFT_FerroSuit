@@ -1,0 +1,160 @@
+{
+  "dato_sintetico": true,
+  "aviso": "Métricas sobre datos SINTÉTICOS: validan la integración, no el desempeño con datos reales.",
+  "conjuntos": {
+    "entrenamiento": {
+      "red_mlp": {
+        "MAE": 2.168447902333663,
+        "RMSE": 5.398341180531191,
+        "WAPE": 0.192499687800344,
+        "sesgo": -0.05978788604100832,
+        "n": 18856,
+        "MAE_escalado_por_producto": 0.24528305232524872
+      },
+      "base_ingenuo": {
+        "MAE": 5.871599511744823,
+        "RMSE": 14.783680933751867,
+        "WAPE": 0.5212396717869647,
+        "sesgo": -0.03804665374402455,
+        "n": 18856,
+        "MAE_escalado_por_producto": 0.6824538707733154
+      },
+      "base_ma7": {
+        "MAE": 2.819661207767389,
+        "RMSE": 6.95017907489895,
+        "WAPE": 0.2503098652330196,
+        "sesgo": -0.07373894238666705,
+        "n": 18856,
+        "MAE_escalado_por_producto": 0.3373141884803772
+      },
+      "base_ma28": {
+        "MAE": 2.318622864033643,
+        "RMSE": 5.708330147510141,
+        "WAPE": 0.20583117398064998,
+        "sesgo": -0.09478074091253111,
+        "n": 18856,
+        "MAE_escalado_por_producto": 0.27347099781036377
+      },
+      "base_regla30": {
+        "MAE": 2.4536626263062074,
+        "RMSE": 6.076455300975044,
+        "WAPE": 0.21781906266828027,
+        "sesgo": -0.5631758390965733,
+        "n": 18856,
+        "MAE_escalado_por_producto": 0.2804994583129883
+      },
+      "referencia_media_verdadera": {
+        "MAE": 1.9903510837315073,
+        "RMSE": 4.870151456238416,
+        "WAPE": 0.17668949381677915,
+        "sesgo": 0.07457999505598918,
+        "n": 18856
+      }
+    },
+    "validacion": {
+      "red_mlp": {
+        "MAE": 2.5555734734204156,
+        "RMSE": 6.687285885429892,
+        "WAPE": 0.1983808294801418,
+        "sesgo": -0.4144374797579288,
+        "n": 3428,
+        "MAE_escalado_por_producto": 0.26712149381637573
+      },
+      "base_ingenuo": {
+        "MAE": 6.673206868460848,
+        "RMSE": 17.556278657811486,
+        "WAPE": 0.5180192734141981,
+        "sesgo": -0.255744664717896,
+        "n": 3428,
+        "MAE_escalado_por_producto": 0.6918368339538574
+      },
+      "base_ma7": {
+        "MAE": 3.3465035158527914,
+        "RMSE": 8.666812108087175,
+        "WAPE": 0.25977814773782976,
+        "sesgo": -0.2814488954833397,
+        "n": 3428,
+        "MAE_escalado_por_producto": 0.3616523742675781
+      },
+      "base_ma28": {
+        "MAE": 2.6834609973023764,
+        "RMSE": 7.016389495601827,
+        "WAPE": 0.20830832064082777,
+        "sesgo": -0.5256468585258743,
+        "n": 3428,
+        "MAE_escalado_por_producto": 0.2767159938812256
+      },
+      "base_regla30": {
+        "MAE": 2.810015771629304,
+        "RMSE": 7.449683074632628,
+        "WAPE": 0.21813235480254012,
+        "sesgo": -0.9963737512083426,
+        "n": 3428,
+        "MAE_escalado_por_producto": 0.28010597825050354
+      },
+      "referencia_media_verdadera": {
+        "MAE": 2.1770582548326343,
+        "RMSE": 5.497365085640223,
+        "WAPE": 0.16899792821931459,
+        "sesgo": -0.24214598749489322,
+        "n": 3428
+      }
+    },
+    "prueba": {
+      "red_mlp": {
+        "MAE": 2.427087994395919,
+        "RMSE": 6.300056622970803,
+        "WAPE": 0.18428671495457438,
+        "sesgo": -0.16538821118505048,
+        "n": 3418,
+        "MAE_escalado_por_producto": 0.26177066564559937
+      },
+      "base_ingenuo": {
+        "MAE": 6.7923144990455135,
+        "RMSE": 19.543437293062468,
+        "WAPE": 0.5157346288464373,
+        "sesgo": 0.048419290040758636,
+        "n": 3418,
+        "MAE_escalado_por_producto": 0.6793444752693176
+      },
+      "base_ma7": {
+        "MAE": 3.228977525976229,
+        "RMSE": 8.53610090052482,
+        "WAPE": 0.24517350104251687,
+        "sesgo": -0.009471669370246395,
+        "n": 3418,
+        "MAE_escalado_por_producto": 0.3259735107421875
+      },
+      "base_ma28": {
+        "MAE": 2.4984048894138415,
+        "RMSE": 6.383452554439826,
+        "WAPE": 0.18970174577915078,
+        "sesgo": 0.10366154242374521,
+        "n": 3418,
+        "MAE_escalado_por_producto": 0.26779046654701233
+      },
+      "base_regla30": {
+        "MAE": 2.67411266161361,
+        "RMSE": 6.796591500005231,
+        "WAPE": 0.20304308659804485,
+        "sesgo": -0.6495112389142992,
+        "n": 3418,
+        "MAE_escalado_por_producto": 0.27764448523521423
+      },
+      "referencia_media_verdadera": {
+        "MAE": 2.209976148668997,
+        "RMSE": 5.59534797630096,
+        "WAPE": 0.1678015982554177,
+        "sesgo": 0.3118612020466675,
+        "n": 3418
+      }
+    }
+  },
+  "comparacion_prueba": {
+    "mejor_metodo_base_por_MAE": "base_ma28",
+    "mejora_MAE_vs_mejor_base_pct": 2.85,
+    "mejora_RMSE_vs_mejor_base_pct": 1.31,
+    "mejora_MAE_vs_regla_actual_pct": 9.24,
+    "mejora_RMSE_vs_regla_actual_pct": 7.31
+  }
+}

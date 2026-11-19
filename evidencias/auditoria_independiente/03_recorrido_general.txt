@@ -1,0 +1,31 @@
+# 2026-11-18T18:13:45+00:00 · Linux 6.18.44-fc-v595 · dotnet 10.0.115
+PASA  | E1 | Sin sesión, abrir Inventario lleva a la pantalla de ingreso
+PASA  | E2 | Clave incorrecta: mensaje genérico y no entra
+PASA  | E3 | Vendedor: el menú solo muestra Inicio e Inventario — Usuario sintético vendedor · Vendedor de mostrador
+PASA  | E4 | Vendedor: solo motivos Venta y Devolución; sin formulario de productos, historial, asistente ni botones de eliminar — Venta|Devolución
+PASA  | E5 | Vendedor: no ve precios de compra ni valor en bodega
+PASA  | E6 | Vendedor registra una venta de 2,5 m — Movimiento registrado. Nuevo stock: 97.5.
+PASA  | E7 | Vendedor enviando mensajes directos por WebView2 (crear administrador, dar de baja stock, eliminar producto): el backend los rechaza
+PASA  | E8 | Vendedor abriendo la pantalla de usuarios por su dirección: "Sin acceso"
+PASA  | E28 | Vendedor: sin menú de Pronósticos y el backend rechaza la consulta directa
+PASA  | E9 | Bodega: motivos de ajuste (sin Venta), historial visible y sin formulario de productos — Compra a proveedor|Ajuste por conteo|Daño o pérdida
+PASA  | E10 | Bodega registra un ajuste; el historial muestra bodega y responsable de cada movimiento
+PASA  | E11 | Bodega crea una orden pero no ve el botón Aprobar
+PASA  | E12 | Bodega intentando aprobar su propia orden con un mensaje directo: rechazado
+PASA  | E24 | Pronósticos: el modelo neuronal está activo y los productos con historia se pronostican con la red — Modelo neuronal activo demanda_mlp.onnx v1.0.0 · ONNX Runtime local · 48 entradas · entren
+PASA  | E25 | Cada fila muestra consumo diario, días hasta agotarse, entrega del proveedor y la explicación
+PASA  | E26 | "Preparar orden" solo llena el formulario: no crea ni aprueba nada hasta que el usuario lo decide — SIN-002 × 32
+PASA  | E27 | Al generarla, la orden queda "Pendiente de aprobación"
+PASA  | E13 | Administrador: el menú incluye Usuarios
+PASA  | E14 | Administrador crea un usuario (queda con obligación de cambiar la clave)
+PASA  | E15 | La pantalla de auditoría muestra la creación del usuario y los accesos denegados, sin claves
+PASA  | E16 | Administrador aprueba la orden y se recibe la mercancía
+PASA  | E17 | Administrador crea y elimina un producto
+PASA  | E18 | NIT con dígito de verificación incorrecto: muestra el error
+PASA  | E19 | Contador: ve órdenes y "Marcar pagada", pero no aprobar ni crear órdenes
+PASA  | E20 | Contador marca la orden como pagada
+PASA  | E21 | Con la clave inicial, el usuario nuevo debe cambiarla antes de entrar
+PASA  | E22 | Tras cambiarla entra con su rol (Vendedor de mostrador)
+PASA  | E23 | Sin errores de JavaScript en consola durante el recorrido
+
+Total: 28 pasan, 0 fallan

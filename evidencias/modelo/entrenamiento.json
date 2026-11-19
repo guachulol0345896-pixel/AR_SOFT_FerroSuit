@@ -1,0 +1,24 @@
+{
+  "epocas_ejecutadas": 40,
+  "mejor_epoca": 15,
+  "mejor_perdida_validacion": 0.33868786692619324,
+  "perdida_entrenamiento_en_mejor_epoca": 0.29650846123695374,
+  "duracion_segundos": 14.3,
+  "parametros_entrenables": 5249,
+  "torch": "2.15.0+cu132",
+  "semilla": 1234,
+  "hiperparametros": {
+    "capas_ocultas": [
+      64,
+      32
+    ],
+    "dropout": 0.1,
+    "tasa_aprendizaje": 0.001,
+    "decaimiento_pesos": 0.0001,
+    "tamano_lote": 256,
+    "epocas_maximas": 300,
+    "paciencia": 25,
+    "perdida": "SmoothL1 (Huber)",
+    "optimizador": "AdamW"
+  }
+}

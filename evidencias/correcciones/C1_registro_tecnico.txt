@@ -1,0 +1,3 @@
+# 2026-11-18T18:29:22+00:00 · prueba del registro técnico (RegistroTecnico.cs) compilado en Release, fuera de la ventana
+# Código de la prueba: Prueba.cs (crea el registro, registra una excepción y un mensaje de Trace, y lee el archivo)
+archivo: ferrosuite-20261118.log · referencia 9DC54342 registrada: True · excepción con pila: True · Trace: True

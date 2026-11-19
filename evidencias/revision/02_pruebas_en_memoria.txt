@@ -1,0 +1,165 @@
+# 2026-11-18T18:43:40+00:00 · Linux 6.18.44-fc-v595 · dotnet 10.0.115
+Pruebas de FerroSuite (backend en memoria, datos SINTÉTICOS)
+Fecha: 2026-11-18 18:43:48  Equipo: vm  .NET 10.0.15  SO: Ubuntu 24.04.5 LTS
+
+PASA  | I1 | SKU: se normaliza a mayúsculas y se valida el formato
+PASA  | I2 | NIT: dígito de verificación (algoritmo DIAN) correcto e incorrecto
+PASA  | I3 | NIT: acepta puntos y espacios al escribirlo, y también sin dígito de verificación
+PASA  | I4 | Nombre de usuario: minúsculas, números, punto, guion y guion bajo (3 a 40)
+PASA  | H1 | Hash con PasswordHasher de Identity (formato V3, con sal: dos hash de la misma clave son distintos) y verificación
+PASA  | H2 | Parámetros de producción: PBKDF2-HMAC-SHA512, 210.000 iteraciones, sal de 16 bytes, subclave de 32 bytes — prf=2 iteraciones=210000 sal=16
+PASA  | H3 | Un hash con menos iteraciones que las vigentes se marca para recalcular
+PASA  | H4 | Las claves de la versión 2 se verifican una vez y piden conversión; un hash dañado nunca da acceso
+PASA  | H5 | Al ingresar con una clave de la versión 2, el hash se convierte al formato de Identity y queda en la auditoría
+PASA  | MZ0 | Toda acción del Puente está revisada en la matriz esperada de las pruebas (y no hay acciones sin permiso definido)
+PASA  | MZ-ADMIN | Rol ADMIN: ejecuta solo sus 43 acciones; las otras 0 se rechazan en el backend y quedan auditadas — 1 denegaciones auditadas
+PASA  | MZ-BODEGA | Rol BODEGA: ejecuta solo sus 17 acciones; las otras 26 se rechazan en el backend y quedan auditadas — 26 denegaciones auditadas
+PASA  | MZ-VENDEDOR | Rol VENDEDOR: ejecuta solo sus 7 acciones; las otras 36 se rechazan en el backend y quedan auditadas — 36 denegaciones auditadas
+PASA  | MZ-CONTADOR | Rol CONTADOR: ejecuta solo sus 11 acciones; las otras 32 se rechazan en el backend y quedan auditadas — 32 denegaciones auditadas
+PASA  | MZ-SIN | Sin sesión, ninguna acción protegida se ejecuta (todas piden ingresar)
+PASA  | D1 | Llamando a los servicios sin pasar por el Puente: eliminar productos, aprobar compras, crear usuarios y cambiar configuración se rechazan sin el rol
+PASA  | D2 | El administrador sí cambia la configuración y queda en la auditoría (sin el valor secreto)
+PASA  | A1 | Clave incorrecta, usuario inexistente y usuario inactivo dan exactamente el mismo mensaje
+PASA  | A2 | Datos de ingreso desmedidos se rechazan sin error interno
+PASA  | A3 | Después de 5 intentos fallidos la cuenta se bloquea: ni con la clave correcta entra, y el bloqueo queda auditado
+PASA  | A4 | Pasados 15 minutos, la clave correcta vuelve a funcionar
+PASA  | A5 | La sesión vence tras 30 minutos sin actividad (la actividad la mantiene) y el vencimiento se audita
+PASA  | A6 | La sesión vence a las 12 horas aunque haya actividad
+PASA  | A7 | El ingreso devuelve los permisos del rol (para la pantalla) y nada de la clave ni del identificador de sesión
+PASA  | A8 | Un nuevo ingreso reemplaza la sesión anterior y lo registra
+PASA  | A9 | Cerrar sesión: el backend vuelve a pedir ingresar
+PASA  | L1 | El vendedor registra ventas y devoluciones, pero no ajustes ni bajas por daño
+PASA  | L2 | El vendedor no recibe costos: sin precio de compra, valor en bodega ni cuentas por pagar
+PASA  | L3 | El encargado de bodega registra ajustes pero no ventas; nadie registra 'Inventario inicial' a mano
+PASA  | L4 | El contador sí ve valores y costos, pero no puede mover inventario
+PASA  | U1 | Política de claves y validaciones: mínimo 10 caracteres, sin contener el usuario; nombres reservados y roles inexistentes se rechazan
+PASA  | U2 | Crear usuario: clave guardada solo como hash de Identity y obligación de cambiarla
+PASA  | U3 | La lista de usuarios no expone hash, intentos ni el usuario técnico de registros anteriores
+PASA  | U4 | Con la clave inicial solo puede cambiarla: nada más se ejecuta hasta hacerlo; exige la clave actual y una distinta
+PASA  | U5 | Restablecer clave: genera una temporal aleatoria (se muestra una vez), la anterior deja de servir y obliga a cambiarla
+PASA  | U6 | El administrador no puede desactivarse a sí mismo (siempre queda al menos uno)
+PASA  | U7 | El administrador puede desbloquear una cuenta
+PASA  | U8 | El 'administrador inicial' solo se puede crear cuando no existe ninguno
+PASA  | C1 | En la base real no se generan cuentas de demostración ni se reconstruye nada, ni siquiera el administrador
+PASA  | C2 | En modo Demo, solo el administrador genera claves aleatorias para las cuentas demo.* (procedimiento local) y con ellas se ingresa
+PASA  | C3 | En modo Demo el administrador reconstruye la base, queda auditado y la sesión se cierra
+PASA  | W1 | Solo se aceptan mensajes de las pantallas propias (https://ferrosuite.example); otras páginas se rechazan y se auditan, aunque haya sesión de administrador
+PASA  | W2 | Mensajes de más de 64 KB o con anidamiento excesivo se rechazan
+PASA  | W3 | Acciones inventadas o con texto extra se rechazan (denegar por defecto), incluso al administrador
+PASA  | W4 | Un error inesperado muestra solo un número de referencia (sin detalles internos) y queda en la auditoría
+PASA  | W5 | La auditoría limpia caracteres de control (nadie puede falsificar líneas del registro)
+PASA  | AU1 | Crear usuarios, crear y eliminar productos, crear y aprobar compras quedan registrados con quién, cuándo, sesión y equipo
+PASA  | AU2 | Solo el administrador consulta la auditoría
+PASA  | AU3 | No hay operación que modifique o borre la auditoría (no existe ninguna acción para eso)
+PASA  | AU4 | Ninguna de las 22 claves usadas (iniciales, temporales, nuevas, erróneas, de demostración) ni ningún hash aparece en la auditoría — 13 eventos revisados
+PASA  | PF1 | Las 48 entradas de C# tienen los mismos nombres y orden que en el entrenamiento
+PASA  | PF2 | El calendario oficial de festivos de Colombia (C#) coincide con los festivos usados al entrenar (2023-2024) — 36 festivos
+PASA  | PF3 | Festivos de 2026 (Pascua 5 de abril; traslados al lunes) calculados correctamente
+PASA  | PF4 | Las entradas que prepara C# son iguales a las de Python en 35 casos (incluye faltantes, ceros, decimales, festivos y Semana Santa) — diferencia máxima 0.00E+000
+PASA  | PF5 | La demanda diaria a partir de movimientos (ventas − devoluciones, agotados como faltantes, stock reconstruido hacia atrás) es igual a la de Python en 4 casos
+PASA  | PU1 | Con el consumo del modelo: días hasta agotarse = stock / consumo, comparado con la entrega del proveedor, y cantidad sugerida — Urgente, 5 días, pedir 48
+PASA  | PU2 | El modelo recibe un lote con las entradas preparadas de cada producto con historia (48 valores y escala)
+PASA  | PU3 | El horizonte es de hoy a hoy + 6 con datos hasta ayer
+PASA  | PU4 | Descuenta lo que ya está pedido (orden pendiente) y el pronóstico nunca crea ni aprueba órdenes
+PASA  | PU5 | Sin historial suficiente se usa la regla de stock mínimo existente y se informa el motivo — Historial insuficiente: el primer movimiento es del 2026-02-18; el modelo necesita 30 días.
+PASA  | PU6 | Con el respaldo, si el stock está en el mínimo o por debajo se recomienda pedir (regla existente)
+PASA  | PU7 | Si el modelo no está disponible, todo usa la regla de respaldo, se informa el motivo y no se llama al modelo
+PASA  | PU8 | Si el modelo falla al calcular: respuesta con la regla de respaldo, falla auditada, y el inventario sigue funcionando
+PASA  | PI1 | El modelo ONNX real carga con ONNX Runtime (huella SHA-256, parámetros y grafo verificados) — demanda_mlp.onnx v1.0.0 · ONNX Runtime local · 48 entradas · entrenado con datos SINTÉTICOS
+PASA  | PI2 | ONNX Runtime en C# da la misma salida que en Python para 35 casos — diferencia máxima 0.00E+000
+PASA  | PI3 | Recorrido completo Puente → aplicación → historial → entradas → ONNX Runtime → recomendación: mismo consumo que Python para el mismo producto y fecha — C# 3.61 · Python 3.6096
+PASA  | PI4 | La recomendación sirve para preparar una orden, que queda pendiente de aprobación (nada se aprueba ni envía solo)
+PASA  | PI5 | Modelo dañado, de otra versión o ausente: queda no disponible con un motivo claro y el pronóstico usa la regla de respaldo — El archivo del modelo no coincide con su huella SHA-256 (está dañado o fue reemplazado). | El modelo no corresponde a esta versión del programa (ventana_dias: 21, se esperaba 28). | No se encontró demanda_mlp.onnx en la carpeta de modelos.
+PASA  | PI6 | El vendedor y el contador no pueden consultar el pronóstico (permiso de administrador y bodega)
+PASA  | PD1 | Detalle de un producto con historial: usa la red neuronal, da el mismo consumo que Python y la MISMA recomendación que la lista — detalle 3.61 · Python 3.6096
+PASA  | PD2 | El historial que se muestra son los datos reales del producto: 90 días hasta ayer, ventas iguales a los movimientos, ventana de 28 días marcada, días previos sin historial — 90 días; vendido 30 días 117 vs movimientos 117.0
+PASA  | PD3 | Pronóstico de 7 días desde hoy con el consumo del modelo; stock proyectado y demanda total del horizonte coherentes
+PASA  | PD4 | Detalle de un producto sin historial: regla de stock mínimo, motivo informado, días hasta agotarse no calculado y riesgo alto por stock en cero — {"sku":"SIN-NUEVO","nombre":"Producto sint\u00E9tico sin movimientos","categoria":"Plomer\u00EDa","unidad":"Unidad","stockActual":0,"stockMinimo":5,"consumoDiario":0,"fuente":"Regla de stock m\u00EDnimo","esRespaldo":true,"motivoRespaldo":"Historial insuficiente: el producto no tiene movimientos.","consumoRegla30Dias":0,"proveedor":"Proveedor Sint\u00E9tico A","nitProveedor":"000000001-8","diasEntrega":3,"diasEntregaPorDefecto":false,"enCamino":0,"urgencia":"Urgente","riesgoDesabastecimiento":"Alto","riesgoDescripcion":"Ya no hay stock.","cantidadSugerida":10,"explicacion":"Consumo con la regla actual: 0 unidad/d\u00EDa (vendido en 30 d\u00EDas / 30). Sin consumo esperado: el stock no se agota en el horizonte. El proveedor tarda 3 d\u00EDa(s). Est\u00E1 en el stock m\u00EDnimo (5) o por debajo.","puedePrepararOrden":true}
+PASA  | PD5 | SKU inexistente, vacío o inactivo: mensaje de validación claro — El producto NO-EXISTE no existe o está inactivo. Revisa los datos ingresados.
+PASA  | PD6 | Si el modelo falla, el detalle usa la regla de respaldo, lo indica y el inventario sigue respondiendo
+PASA  | PD7 | Modelo no disponible: el detalle lo informa (estado del modelo y motivo) y usa la regla de respaldo
+PASA  | PD8 | Los días con stock en cero sin ventas se muestran como agotado (demanda no observada), no como venta cero — 5 días agotado
+PASA  | PD9 | Nivel de riesgo de desabastecimiento coherente con la urgencia (Alto, Medio, Bajo, Muy bajo)
+PASA  | PD10 | Detalle por producto: el administrador y bodega pueden consultarlo; vendedor y contador no
+PASA  | P1 | Crear producto válido (el SKU se pasa a mayúsculas)
+PASA  | P2 | El stock inicial entra como movimiento 'Inventario inicial' a nombre del usuario, en la bodega principal
+PASA  | P3 | Rechaza SKU repetido
+PASA  | P4 | Rechaza stock negativo y decimales en varilla
+PASA  | P5 | Rechaza SKU con caracteres no permitidos, categoría inexistente y unidad fuera de la lista
+PASA  | P6 | Acepta el nombre de la categoría en lugar del identificador (compatibilidad con la pantalla anterior)
+PASA  | P7 | Editar no cambia el stock (solo cambia con movimientos)
+PASA  | P8 | Un producto sin historial ni stock se elimina
+PASA  | P9 | Un producto con historial se desactiva en lugar de borrarse: el historial se conserva
+PASA  | M1 | Salida válida con decimales en metros actualiza el stock y la existencia de la bodega
+PASA  | M2 | Rechaza salida mayor al stock
+PASA  | M3 | Rechaza motivo incoherente y decimales en varilla
+PASA  | M4 | Rechaza una bodega inexistente
+PASA  | M5 | El stock se controla por bodega: hay 15 en total pero solo 10 en la principal, así que no deja sacar 12 de ella
+PASA  | M6 | La lista de movimientos muestra bodega y responsable
+PASA  | M7 | Total del producto = suma de sus existencias por bodega
+PASA  | V1 | Rechaza NIT con formato inválido
+PASA  | V2 | Rechaza NIT con dígito de verificación incorrecto
+PASA  | V3 | Rechaza el mismo NIT escrito sin dígito de verificación y días de entrega fuera de rango
+PASA  | V4 | Crea un proveedor válido (NIT normalizado)
+PASA  | V5 | Editar proveedor (antes E-06: no existía)
+PASA  | V6 | Un proveedor desactivado se conserva pero no se puede usar en productos ni órdenes nuevas
+PASA  | O1 | Rechaza 2,5 varillas en una orden (antes E-05: se aceptaba)
+PASA  | O2 | Crea una orden de una línea con el formato anterior (sku y cantidad sueltos)
+PASA  | O3 | No deja pagar una orden sin aprobar
+PASA  | O4 | Aprueba una vez, rechaza la segunda aprobación y calcula la entrega esperada (10 días del proveedor)
+PASA  | O5 | El valor de la orden se guarda con el precio del momento (antes E-04: cambiaba con el producto) — 60000 → 60000
+PASA  | O6 | Orden con varias líneas
+PASA  | O7 | Rechaza el mismo producto repetido en dos líneas
+PASA  | O8 | Recibir una orden aprobada suma al inventario, registra la entrada con el código de la orden y quién la recibió; no se recibe dos veces
+PASA  | O9 | Una orden recibida se puede pagar (contador)
+PASA  | O10 | Una orden rechazada ya no se puede aprobar
+PASA  | O11 | Un producto con órdenes no se borra: se desactiva
+PASA  | O12 | Códigos únicos: OC-999 y luego OC-1000 (antes E-01: la orden 1001 repetía OC-001). Misma fórmula que la columna calculada
+PASA  | X1 | 20 salidas simultáneas de 1 unidad con stock 10: exactamente 10 se registran y el stock queda en 0, nunca negativo — éxitos: 10
+PASA  | X2 | 5 recepciones simultáneas de la misma orden: solo una suma al inventario — éxitos: 1
+PASA  | CM1 | Acción desconocida responde ok=false
+PASA  | CM2 | JSON mal formado responde con mensaje de formato
+PASA  | CM3 | Simular desconexión: el Puente no responde
+PASA  | CM4 | Datos incompletos: devuelve lista de errores en español
+PASA  | CM5 | Una falla de base de datos (DbException) se informa sin cerrar el programa
+PASA  | CM6 | El estado del sistema indica si es modo demostración (sin necesidad de sesión)
+PASA  | CM7 | Un mensaje con propiedades repetidas (dos "accion") se rechaza como formato incorrecto, sin error inesperado ni ejecución — {"ok":false,"mensaje":"Los datos enviados tienen un formato incorrecto.","errores":[]}
+PASA  | AS1 | Consumo diario = vendido en 30 días / 30 (60/30 = 2; 100/2 = 50 días)
+PASA  | AS2 | Sin clave de Gemini, la sugerencia de reposición se responde con reglas
+PASA  | AS3 | Recordatorio de pago cuando faltan 5 días o menos del plazo de 15
+PASA  | AS4 | Pregunta sin Gemini: responde con reglas
+PASA  | AS5 | Rechaza preguntas de más de 500 caracteres
+PASA  | G1 | Lee la respuesta e ignora las partes de 'pensamiento'
+PASA  | G2 | La clave viaja en el encabezado x-goog-api-key y no en la URL
+PASA  | G3 | Error 400: devuelve null y guarda el motivo
+PASA  | G4 | Tiempo agotado: devuelve null y se usan las reglas de respaldo
+PASA  | G5 | Con respuesta del servidor falso, la fuente queda como 'gemini'
+PASA  | G6 | Sin internet (servidor de Gemini inalcanzable): el asistente responde con reglas, informa el motivo y no bloquea el programa — 0.3 s · motivo: No se pudo consultar Gemini (HttpRequestException): The proxy tunnel request to proxy 'http://127.0.0.1:39929/' failed with status code '403'."
+PASA  | CA1 | Administrador: crea una bodega y la edita (nombre y dirección); un nombre repetido se rechaza — Ya existe otra bodega con ese nombre. Revisa los datos ingresados.
+PASA  | CA2 | Desactivar una bodega vacía funciona y deja de ofrecerse en los formularios; una bodega con mercancía no se puede desactivar — La bodega tiene mercancía (110); trasládala o ajústala antes de desactivarla. | Debe quedar al menos una bodega activa. Revisa los datos ingresados.
+PASA  | CA3 | Categorías: crear, renombrar, nombre repetido rechazado, no se desactiva con productos activos, la inactiva sale de los formularios y no se puede usar — La categoría tiene 1 producto(s) activo(s); cámbialos de categoría antes de desactivarla. Revisa los datos ingresados. | Elige una categoría válida. Revisa los datos ingresados.
+PASA  | CA4 | Editar usuario: cambia nombre y rol (rige en su siguiente ingreso), queda auditado; no se cambia el propio rol; datos inválidos se rechazan — No puedes cambiar tu propio rol (pídeselo a otro administrador). Revisa los datos ingresados.
+PASA  | CA5 | Las nuevas acciones administrativas se rechazan a otros roles en el backend (también figuran en la matriz MZ)
+PASA  | GK1 | La clave de Gemini se guarda cifrada: el archivo no contiene la clave en texto plano y se recupera igual — DPAPI1:ARkWGwwfdwkTF…
+PASA  | GK2 | Un archivo antiguo en texto plano se migra: se cifra y se borra el texto plano
+PASA  | GK3 | Si no hay DPAPI (fuera de Windows), la clave NO se guarda en texto plano: se avisa y no se escribe ningún archivo — En este sistema no se puede cifrar la clave con DPAPI de Windows, así que no se guardó. Usa la variable de entorno GEMINI_API_KEY.
+PASA  | GK4 | Guardar una clave vacía la borra
+PASA  | GK5 | El protector real usa DPAPI solo en Windows (en este sistema se declara no disponible y no intenta guardar) — no es Windows: DPAPI no disponible
+PASA  | K1 | Sin archivo: valores por defecto (LocalDB, 30 s, modo Real, bases FerroSuite y FerroSuiteDemo) y aviso
+PASA  | K2 | Archivo mal escrito: valores por defecto y aviso, sin cerrar el programa
+PASA  | K3 | Lee los valores, corrige los fuera de rango y rechaza nombres de base no válidos
+PASA  | K4 | El archivo de configuración no tiene dónde guardar una clave (se ignora 'ApiKey')
+PASA  | K5 | La base real y la de demostración no pueden tener el mismo nombre
+PASA  | K6 | Cada modo usa su propia base y la cadena de conexión no lleva usuario ni contraseña — Data Source=(localdb)\Otra;Initial Catalog=FerroSuiteDemo;Integrated Security=True;Trust Server Certificate=True;Connect Timeout=120;Application Name=FerroSuite
+PASA  | K7 | La base real no se puede borrar ni restablecer desde el programa (se rechaza antes de conectarse)
+PASA  | K8 | config/appsettings.json del repositorio: modo Real por defecto y sin claves
+PASA  | K9 | Las migraciones del repositorio se encuentran en orden (V001, V002…) — V001__esquema_inicial, V002__modelo_completo, V003__seguridad_y_auditoria
+PASA  | K10 | El divisor de lotes separa los scripts por GO (V002) — 24 GO, 24 lotes
+PASA  | K11 | Los scripts no contienen contraseñas, hash ni usuarios con clave precargados
+
+Total: 154 pasan, 0 fallan
+
+Medición | Entradas C# vs Python: 35 casos, diferencia máxima 0.00E+000
+Medición | ONNX Runtime en C# vs ONNX Runtime en Python: 35 casos, diferencia máxima 0.00E+000 unidades/día
+Medición | Inferencia de 1000 productos en un lote: 2.2 ms
+Medición | Recorrido SINT-001: red neuronal 3.61 por día (Python: 3.6096); regla 30 días 3.9 (Python: 3.9); stock 40 → 11.1 días; entrega 10; Pedir ahora; pedir 61

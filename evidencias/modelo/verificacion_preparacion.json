@@ -1,0 +1,14 @@
+{
+  "1_sin_fuga_entradas_no_cambian_al_alterar_el_futuro": true,
+  "1b_objetivos_lejanos_al_corte_no_cambian": true,
+  "1c_control_entradas_posteriores_si_cambian": true,
+  "1_origenes_comparados": 2252,
+  "2_normalizacion_solo_entrenamiento": true,
+  "3_separacion_cronologica_con_margen": true,
+  "4_sin_vacios_ni_infinitos": true,
+  "4b_muestras_con_faltantes_en_la_ventana": 8167,
+  "5_dataset_sintetico_reproducible": true,
+  "6_lector_movimientos_ferrosuite": true,
+  "6b_lector_reconstruye_stock_hacia_atras": true,
+  "todas_correctas": true
+}

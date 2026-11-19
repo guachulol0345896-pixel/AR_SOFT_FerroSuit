@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usuarios — FerroSuite</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body data-pagina="usuarios">
+
+  <div data-componente="encabezado"></div>
+
+  <main>
+    <section class="module-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / Usuarios</p>
+        <h1>Usuarios y auditoría</h1>
+        <p class="lead">
+          Solo el administrador ve esta pantalla. Cada usuario tiene un rol que define lo que puede hacer; el programa lo
+          comprueba en el backend en cada operación. Las claves se guardan solo como hash y nunca se muestran.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Usuarios</h2>
+        </div>
+        <div id="mensajes-usuarios" class="form-mensajes"></div>
+        <div id="tabla-usuarios"></div>
+
+        <div class="section-head bloque-gap">
+          <h2 id="titulo-form-usuario">Crear usuario</h2>
+          <p id="ayuda-form-usuario">Escribe una clave inicial (10 caracteres o más, con letras y números). El usuario deberá cambiarla la primera vez que ingrese.</p>
+        </div>
+        <div id="form-usuario"></div>
+
+        <div class="section-head bloque-gap">
+          <h2>Registro de auditoría</h2>
+          <p>Las 100 operaciones sensibles más recientes: ingresos, accesos denegados, cambios de usuarios, productos, compras y configuración. No contiene claves.</p>
+        </div>
+        <div id="tabla-auditoria"></div>
+      </div>
+    </section>
+  </main>
+
+  <div data-componente="pie"></div>
+
+  <script src="js/components/util.js"></script>
+  <script src="js/components/etiqueta.js"></script>
+  <script src="js/components/tarjetaResumen.js"></script>
+  <script src="js/components/aviso.js"></script>
+  <script src="js/components/tabla.js"></script>
+  <script src="js/components/formulario.js"></script>
+  <script src="js/components/encabezado.js"></script>
+  <script src="js/components/pie.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/comunicacion/api.js"></script>
+  <script src="js/services/usuariosService.js"></script>
+  <script src="js/controllers/usuarios.js"></script>
+</body>
+</html>

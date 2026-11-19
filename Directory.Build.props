@@ -1,0 +1,13 @@
+<Project>
+  <!-- Configuración común para todos los proyectos de la solución. -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Authors>Santiago Rios Duque; Juan Diego Rojas; Zhadyth Alejandra Puentes Velandia</Authors>
+    <Product>FerroSuite</Product>
+    <Company>Universidad Manuela Beltrán — Arquitectura de Software</Company>
+    <Version>0.5.0</Version>
+    <NeutralLanguage>es-CO</NeutralLanguage>
+  </PropertyGroup>
+</Project>

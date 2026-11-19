@@ -1,0 +1,9 @@
+# 2026-11-18T18:48:41+00:00 · Linux 6.18.44-fc-v595 · dotnet 10.0.115
+PASA  | EQ1 | Huella SHA-256 del modelo entregado = la registrada en sus parámetros — 08eb91cf8e254a8a76d087096909b287e1dbbd9fe9209e6ed05a56745dce5cce
+PASA  | EQ2 | Orden de las 48 entradas: parámetros de normalización = casos de referencia de C# — 48 entradas
+PASA  | EQ3 | ONNX Runtime reproduce las salidas registradas en los casos que comparan las pruebas de C# — 35 casos, diferencia máx. 0.00e+00
+PASA  | EQ4 | Recorrido SINT-001: ONNX Runtime da la salida registrada (la que C# convierte en 3,61/día) — 3.6096 (registrado 3.6096)
+PASA  | EQ5 | PyTorch (pesos guardados) = ONNX Runtime en todas las muestras de prueba — 3418 muestras, diferencia máx. 7.63e-06
+PASA  | EQ6 | Salidas no negativas (el modelo incluye max(0, ·))
+
+6/6 comprobaciones correctas

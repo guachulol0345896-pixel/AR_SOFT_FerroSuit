@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Capa de PRESENTACIÓN (parte sin Windows): el Puente que recibe los mensajes de las pantallas
+       y llama a los casos de uso. Separado de la ventana para poder probarlo sin Windows. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>FerroSuite.Presentacion.Comunicacion</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FerroSuite.Aplicacion\FerroSuite.Aplicacion.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="FerroSuite.Dominio.Comun" />
+    <Using Include="FerroSuite.Dominio.Inventario" />
+    <Using Include="FerroSuite.Dominio.Proveedores" />
+    <Using Include="FerroSuite.Dominio.Compras" />
+    <Using Include="FerroSuite.Aplicacion.Puertos" />
+    <Using Include="FerroSuite.Aplicacion.IA" />
+    <Using Include="FerroSuite.Aplicacion.IA.Pronostico" />
+    <Using Include="FerroSuite.Aplicacion.Inventario" />
+    <Using Include="FerroSuite.Aplicacion.Proveedores" />
+    <Using Include="FerroSuite.Aplicacion.Compras" />
+    <Using Include="FerroSuite.Aplicacion.Usuarios" />
+    <Using Include="FerroSuite.Aplicacion.Seguridad" />
+    <Using Include="FerroSuite.Dominio.Usuarios" />
+    <Using Include="FerroSuite.Dominio.Seguridad" />
+  </ItemGroup>
+</Project>

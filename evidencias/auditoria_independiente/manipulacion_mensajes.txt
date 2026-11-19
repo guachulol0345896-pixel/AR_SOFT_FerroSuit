@@ -1,0 +1,19 @@
+# 2026-11-18T18:17:45+00:00 · auditoría independiente · mensajes manipulados contra el Puente real
+PASA  | T1 | Vendedor no puede registrar compras ni ajustes cambiando "tipo" o "motivo" en el mensaje — Tu rol (Vendedor de mostrador) no permite esta operación. | Tu rol (Vendedor de mostrador) no permite esta operación.
+PASA  | T2 | Vendedor: la respuesta de productos no incluye costos (precio de compra ni valor) — campos: sku,nombre,categoriaId,unidad,stockActual,stockMinimo,nitProveedor,activo,categoria,nombreProveedor,diasEntregaProveedor,existencias,consumoDiario,diasRestantes,estado
+PASA  | T3 | Vendedor: los campos "usuarioId"/"usuario" falsificados en el mensaje se ignoran — Movimiento registrado. Nuevo stock: 99.
+PASA  | T4 | Bodega no puede registrar ventas cambiando el motivo — Tu rol (Encargado de bodega) no permite esta operación.
+FALLA | T5 | Bodega: la respuesta de productos no incluye valores en pesos — campos: sku,nombre,categoriaId,unidad,stockActual,stockMinimo,precioCompra,nitProveedor,activo,categoria,nombreProveedor,diasEntregaProveedor,existencias,consumoDiario,diasRestantes,estado
+PASA  | T6 | Bodega: "estado", "pagada" y "precioUnitario" falsificados al crear una orden se ignoran (queda pendiente, sin pagar y con el precio del producto) — Pendiente de aprobación · pagada false · precio 1000 (producto 1000)
+PASA  | T7 | Bodega no puede aprobar órdenes ni crear usuarios aunque envíe la acción — Tu rol (Encargado de bodega) no permite esta operación. | Tu rol (Encargado de bodega) no permite esta operación.
+PASA  | T8 | Contador no puede mover inventario ni eliminar productos — Tu rol (Contador externo) no permite esta operación. | Tu rol (Contador externo) no permite esta operación.
+PASA  | T9 | Claves "accion" duplicadas en el JSON no saltan permisos (contador) — {"ok":false,"mensaje":"Ocurrió un error inesperado. Referencia: 26D93138","errores":[]}
+PASA  | T10 | Acciones con mayúsculas o espacios no se aceptan — Revisa los datos ingresados. | Revisa los datos ingresados.
+PASA  | T11 | JSON demasiado profundo o demasiado grande se rechaza sin error interno — Los datos enviados tienen un formato incorrecto. | El mensaje es demasiado grande.
+PASA  | T12 | Cantidades absurdas (1e30, "NaN", negativas) se rechazan como validación, no como error inesperado — Los datos enviados tienen un formato incorrecto.  | Los datos enviados tienen un formato incorrecto.  | Revisa los datos ingresados. La cantidad debe ser mayor que 0.
+PASA  | T13 | Un "limite" enorme en consultas se acota o se rechaza — 187 filas
+PASA  | T14 | El administrador no puede desactivarse a sí mismo (evita quedar sin administrador) — Revisa los datos ingresados.
+PASA  | T15 | Pronóstico con "dias" enorme: se acota (máximo 365) y responde — 365 días
+PASA  | T16 | Sin sesión, toda acción protegida se rechaza (sinSesion) — Tu sesión no está iniciada o venció. Ingresa con tu usuario y clave.
+
+15/16 comprobaciones correctas
